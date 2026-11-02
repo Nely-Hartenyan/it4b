@@ -1,0 +1,17 @@
+.userCard{
+  background-color: rgb(158, 187, 178);
+  margin-bottom: 20px;
+  width: 350px;
+  height: 200px;
+  border-radius: 24px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.userCard:hover {
+    background-color: beige;
+  }
+.userCardsWrapper{
+  display: flex;
+  gap: 20px
+}
