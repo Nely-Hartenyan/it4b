@@ -7,6 +7,7 @@ function Header({cart}){
                     <a href='#'>Home</a>
                     <a href='#'>About</a>
                     <a href='#'>Products</a>
+                    <a href='#'>Login</a>
                 </nav>
                 <p>Cart: {cart}</p>
             </div>
