@@ -1,24 +1,43 @@
-import Header from "./components/Header";
-import Hero from './components/Hero';
-import Footer from './components/Footer';
-import ProductList from './components/ProductList'
-import { useState } from "react";
-function App() {
+import { Routes, Route } from "react-router";
 
-  const [cart,setCart] = useState([]);
+import Home from "./pages/Home";
+import About from "./pages/About";
+import DashboardLayout from "./components/DashboardLayout";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import { products } from "./data/products";
+import ProductDetails from './pages/ProductDetails'
+import Cart from './pages/Cart'
 
-  console.log(cart)
-  function addToCart(product){
-    setCart(prev => [...prev,product])
-  }
-
+function App() {  
   return (
-    <div className="bg-gray-200 min-h-screen">
-      <Header cart={cart.length}/>
-      <Hero/>
-      <ProductList onAddToCart={addToCart}/>
-      <Footer/>
-    </div>
+   <Routes>
+      <Route path="/" element={<Home/>} />
+      <Route path="/about" element={<About />} />
+      <Route
+        path="/dashboard"
+        element={<DashboardLayout />}
+      >
+        <Route index element={<Dashboard />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
+      <Route
+            path="/products/:productId"
+            element={
+              <ProductDetails
+                products={products}
+              />
+            }
+      />
+      <Route
+            path="/cart"
+            element={
+              <Cart/>
+            }
+      />
+    </Routes>
   );
 }
 
